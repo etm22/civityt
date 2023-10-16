@@ -2,15 +2,15 @@ const axios = require("axios");
 const fs = require("fs/promises");
 
 (async () => {
-  await downloadImagesFromCivitAI(50);
+  await downloadImagesFromCivitAI(5000, 720);
 })();
 
-async function downloadImagesFromCivitAI(noOfImages) {
+async function downloadImagesFromCivitAI(scrapeLimit, downloadLimit) {
   let totalImages = 0;
   let imageUrls = [];
   let url = "https://civitai.com/api/v1/images?nsfw=None";
 
-  while (totalImages < noOfImages) {
+  while (totalImages < scrapeLimit) {
     const response = await axios.get(url);
     const { items, metadata } = response.data;
 
@@ -33,10 +33,22 @@ async function downloadImagesFromCivitAI(noOfImages) {
     imageUrls.push(...urls);
   }
 
-  for (let idx = 0; idx < imageUrls.length; idx++) {
+  shuffleArray(imageUrls);
+  shuffleArray(imageUrls);
+  shuffleArray(imageUrls);
+  shuffleArray(imageUrls);
+  shuffleArray(imageUrls);
+
+  for (let idx = 0; idx < downloadLimit; idx++) {
     const url = imageUrls[idx];
-    // const extension = url.split(".")[3];
     const response = await axios.get(url, { responseType: "arraybuffer" });
     await fs.writeFile(`outputs/images/${idx}.jpeg`, response.data);
+  }
+}
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
 }
