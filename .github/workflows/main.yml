@@ -10,6 +10,8 @@ jobs:
       - uses: FedericoCarboni/setup-ffmpeg@v2
       - run: npm i
       - run: pip install yt-dlp
+      - run: node download_images.js
+      - run: python resize_images.py
       - run: node create_video.js
 
       - uses: actions/upload-artifact@v3
