@@ -32,5 +32,5 @@ async function getImageUrlsFromCivitAI(scrapeLimit) {
     console.log(imageUrls.length);
   }
 
-  await fs.writeFile("images.json", JSON.stringify({ urls: imageUrls }));
+  await fs.writeFile("data/images.json", JSON.stringify({ urls: imageUrls }));
 }
