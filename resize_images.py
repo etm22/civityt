@@ -24,6 +24,9 @@ out_path = "outputs/images_resized"
 images = [f for f in os.listdir(in_path) if f.lower().endswith('.jpeg')]
 
 for img in images:
-    adjustImage(f"{in_path}/{img}",f"{out_path}/{img}")
-
+    try:
+        adjustImage(f"{in_path}/{img}",f"{out_path}/{img}")
+    except:
+        print(f"Failed to resize image: {img}")
+        pass
 
