@@ -12,13 +12,15 @@ const path = require("path");
   const video_length_in_sec =
     (resized_images.length - 1) * config.image_duration_in_sec;
 
-  // generate audios
-  const musics = JSON.parse(await fs.readFile("data/musics.json", "utf-8"));
-  shuffleArray(musics);
-  const selectedMusic = musics[0];
+  // select random video
+  const videos = JSON.parse(await fs.readFile("data/musics.json", "utf-8"));
+  shuffleArray(videos);
+  shuffleArray(videos);
+  shuffleArray(videos);
+  const selectedVideo = videos[0];
 
   // download audios
-  const songs = selectedMusic.songs;
+  const songs = selectedVideo.songs;
   shuffleArray(songs);
   shuffleArray(songs);
   shuffleArray(songs);
@@ -29,12 +31,12 @@ const path = require("path");
   for (let idx = 0; idx < songs.length; idx++) {
     if (totalMusicDuration >= video_length_in_sec) break;
     const song = songs[idx];
-    totalMusicDuration += song.duration;
-    txt += `file '${idx}.mp3'\n`;
 
     execSync(
-      `yt-dlp "${selectedMusic.url}" --downloader ffmpeg --downloader-args "ffmpeg_i:-ss ${song.start} -to ${song.end}" --extract-audio --audio-format mp3 -o "outputs/musics/${idx}.mp3"`
+      `yt-dlp "${selectedVideo.url}" --downloader ffmpeg --downloader-args "ffmpeg_i:-ss ${song.start} -to ${song.end}" --extract-audio --audio-format mp3 -o "outputs/musics/${idx}.mp3"`
     );
+    txt += `file '${idx}.mp3'\n`;
+    totalMusicDuration += song.duration;
   }
 
   // merge musics together
