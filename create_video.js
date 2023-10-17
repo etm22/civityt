@@ -6,9 +6,6 @@ const path = require("path");
   const config = JSON.parse(await fs.readFile("data/config.json", "utf-8"));
 
   const outputDirectory = path.join(__dirname, "outputs");
-  //   execSync(
-  //     `ffmpeg -framerate 1/${config.image_duration_in_sec} -pattern_type glob -i "${outputDirectory}/images_resized/*.jpeg" -c:v libx264 -r 1 -pix_fmt yuv420p "${outputDirectory}/video.mp4"`
-  //   );
 
   //   get video duration
   const resized_images = await fs.readdir("outputs/images_resized");
@@ -28,15 +25,28 @@ const path = require("path");
   shuffleArray(songs);
 
   let totalMusicDuration = 0;
+  let txt = "";
   for (let idx = 0; idx < songs.length; idx++) {
     if (totalMusicDuration >= video_length_in_sec) break;
     const song = songs[idx];
     totalMusicDuration += song.duration;
+    txt += `file '${idx}.mp3'\n`;
 
     execSync(
       `yt-dlp "${selectedMusic.url}" --downloader ffmpeg --downloader-args "ffmpeg_i:-ss ${song.start} -to ${song.end}" --extract-audio --audio-format mp3 -o "outputs/musics/${idx}.mp3"`
     );
   }
+
+  // merge musics together
+  await fs.writeFile("outputs/musics/music.txt", txt);
+  execSync(
+    `ffmpeg -f concat -safe 0 -i "${outputDirectory}/musics/music.txt" -c copy "${outputDirectory}/musics/music.mp3"`
+  );
+
+  // create final video + add audio
+  execSync(
+    `ffmpeg -framerate 1/${config.image_duration_in_sec} -pattern_type glob -i "${outputDirectory}/images_resized/*.jpeg" -i "${outputDirectory}/musics/music.mp3" -c:v libx264 -r 1 -pix_fmt yuv420p -c:a aac -strict experimental -shortest "${outputDirectory}/video.mp4"`
+  );
 })();
 
 function shuffleArray(array) {
