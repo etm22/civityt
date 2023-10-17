@@ -2,9 +2,7 @@ const fs = require("fs/promises");
 const axios = require("axios");
 
 (async () => {
-  const config = JSON.parse(
-    await fs.readFile("data/config.json", "utf-8")
-  ).urls;
+  const config = JSON.parse(await fs.readFile("data/config.json", "utf-8"));
   const num_of_images_to_download =
     config.video_duration_in_sec / config.image_duration_in_sec;
   const imageUrls = JSON.parse(
@@ -34,4 +32,3 @@ function shuffleArray(array) {
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
-// ffmpeg -framerate 1/5 -pattern_type glob -i 'outputs/images_resized/*.jpeg' -c:v libx264 -r 1 -pix_fmt yuv420p out.mp4

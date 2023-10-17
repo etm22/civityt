@@ -1,5 +1,4 @@
 from PIL import Image
-import subprocess
 import os
 
 
@@ -22,7 +21,9 @@ def adjustImage(in_path,out_path):
 
 in_path = "outputs/images"
 out_path = "outputs/images_resized"
-images = [f for f in os.listdir(in_path)]
+images = [f for f in os.listdir(in_path) if f.lower().endswith('.jpeg')]
 
 for img in images:
     adjustImage(f"{in_path}/{img}",f"{out_path}/{img}")
+
+
