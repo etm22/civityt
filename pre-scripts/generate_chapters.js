@@ -90,6 +90,6 @@ function timeStringToSeconds(timeString) {
 }
 
 (async () => {
-  await downloadYoutubeVideoChapters("J-tKWv7he1c");
+  await downloadYoutubeVideoChapters("pfNwL0IHrU0");
   // yt-dlp "https://www.youtube.com/watch?v=J-tKWv7he1c" --downloader ffmpeg --downloader-args "ffmpeg_i:-ss 424 -to 650" --extract-audio --audio-format mp3
 })();
