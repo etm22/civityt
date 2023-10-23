@@ -15,11 +15,10 @@ async function uploadVideoToBB() {
   const video_url = await uploadVideoToBB();
 
   const data = JSON.stringify({
-    video_title: `Best AI Generated Images 2023 - (Stable Diffusion)`,
+    video_title: `Stable Diffusion Compilation - [1+ Hours AI Generated Images, 4K FHD]`,
     video_description: `Create free images with AI: ${process.env.AFF_LINK}
 \n
 Music Credits: Karl Casey @ White Bat Audio
-\n
 \n
 \n
 (stable diffusion,stable diffusion tutorial,stable diffusion prompt guide,stable diffusion img2img,stable diffusion models,stable diffusion lora,stable diffusion video,stable diffusion install,stable diffusion controlnet,stable diffusion ai,stable diffusion xl,stable diffusion prompts,stable diffusion anime,a1111 stable diffusion,stable diffusion scripts,stable diffusion realistic,stable diffusion extensions,stable diffusion embeddings)
