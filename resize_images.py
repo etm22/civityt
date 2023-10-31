@@ -33,9 +33,9 @@ def adjustImage(in_path,out_path,add_text,desired_height, desired_width):
 
     padded_img.save(out_path)
 
-in_path = "Lookbook"
+in_path = "outputs/images"
 out_path = "outputs/images_resized"
-images = [f for f in os.listdir(in_path) if f.lower().endswith('.png')]
+images = [f for f in os.listdir(in_path) if f.lower().endswith('.jpeg')]
 
 for idx in range(len(images)):
     img = images[idx]
