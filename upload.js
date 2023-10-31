@@ -15,7 +15,7 @@ async function uploadVideoToBB() {
   const video_url = await uploadVideoToBB();
 
   const data = JSON.stringify({
-    video_title: `Stable Diffusion Compilation - [1+ Hours AI Generated Images, 4K FHD]`,
+    video_title: `Stable Diffusion AI Lookbook - [1 hour, 4K FHD]`,
     video_description: `Create free images with AI: ${process.env.AFF_LINK}
 \n
 Music Credits: Karl Casey @ White Bat Audio

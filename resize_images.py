@@ -18,7 +18,7 @@ def adjustImage(in_path,out_path,add_text,desired_height, desired_width):
 
     if add_text:
         # Add text at the bottom
-        text_to_add="Top AI generated images"
+        text_to_add="Generate images using AI: www.uncashy.com"
         draw = ImageDraw.Draw(padded_img)
         text_color = (255, 255, 255)  # White text color
         text_font = ImageFont.truetype("arial.ttf", 40)  # You can specify the font and size
@@ -39,13 +39,12 @@ images = [f for f in os.listdir(in_path) if f.lower().endswith('.jpeg')]
 
 for idx in range(len(images)):
     img = images[idx]
-    # try:
-    adjustImage(f"{in_path}/{img}",f"{out_path}/{img}",True, 1920,1080)
-        # if(idx%5 == 0):
-            # adjustImage(f"{in_path}/{img}",f"{out_path}/{img}",False)
-        # else:
-            # adjustImage(f"{in_path}/{img}",f"{out_path}/{img}",False, 1920, 1080)
-    # except:
-    #     print(f"Failed to resize image: {img}")
-    #     pass
+    try:
+        if(idx%5 == 0):
+            adjustImage(f"{in_path}/{img}",f"{out_path}/{img}",True,1080,1920)
+        else:
+            adjustImage(f"{in_path}/{img}",f"{out_path}/{img}",False, 1080,1920)
+    except:
+        print(f"Failed to resize image: {img}")
+        pass
 
