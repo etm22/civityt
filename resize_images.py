@@ -39,13 +39,13 @@ images = [f for f in os.listdir(in_path) if f.lower().endswith('.jpeg')]
 
 for idx in range(len(images)):
     img = images[idx]
-    try:
-        adjustImage(f"{in_path}/{img}",f"{out_path}/{img}",True, 1920,1080)
+    # try:
+    adjustImage(f"{in_path}/{img}",f"{out_path}/{img}",True, 1920,1080)
         # if(idx%5 == 0):
             # adjustImage(f"{in_path}/{img}",f"{out_path}/{img}",False)
         # else:
             # adjustImage(f"{in_path}/{img}",f"{out_path}/{img}",False, 1920, 1080)
-    except:
-        print(f"Failed to resize image: {img}")
-        pass
+    # except:
+    #     print(f"Failed to resize image: {img}")
+    #     pass
 
