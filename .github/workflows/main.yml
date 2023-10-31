@@ -3,13 +3,12 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 */6 * * *" # every 6 hours
-  push:
-    branches: [master]
+  # push:
+  #   branches: [master]
 
 env:
   YT_API_KEY: ${{secrets.YT_API_KEY}}
   AFF_LINK: ${{secrets.AFF_LINK}}
-  BB_URL: ${{secrets.BB_URL}}
   YT_UPLOADER_API: ${{secrets.YT_UPLOADER_API}}
 
 jobs:
