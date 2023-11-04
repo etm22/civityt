@@ -1,6 +1,6 @@
-const { execSync } = require("child_process");
-const fs = require("fs/promises");
-const path = require("path");
+import { execSync } from "child_process";
+import * as fs from "fs/promises";
+import path from "path";
 
 (async () => {
   const config = JSON.parse(await fs.readFile("data/config.json", "utf-8"));
