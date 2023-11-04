@@ -20,6 +20,7 @@ const axios = require("axios");
     try {
       const response = await axios.get(url, { responseType: "arraybuffer" });
       await fs.writeFile(`outputs/images/${idx}.jpeg`, response.data);
+      console.log(`${idx}/${num_of_images_to_download} downloaded`);
     } catch (error) {
       console.log("Failed to download: ", url);
     }
