@@ -1,7 +1,7 @@
 import * as fs from "fs/promises";
 import axios from "axios";
 import pLimit from "p-limit";
-const limit = pLimit(10);
+const limit = pLimit(100);
 
 (async () => {
   const config = JSON.parse(await fs.readFile("data/config.json", "utf-8"));
@@ -24,7 +24,10 @@ const limit = pLimit(10);
 
 async function downloadAndSaveImage(url) {
   try {
-    const response = await axios.get(url, { responseType: "arraybuffer" });
+    const response = await axios.get(url, {
+      responseType: "arraybuffer",
+      timeout: 5000,
+    });
     await fs.writeFile(`outputs/images/${Date.now()}.jpeg`, response.data);
   } catch (error) {
     console.log("Failed to download: ", url);
