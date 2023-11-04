@@ -1,7 +1,7 @@
 import { execSync } from "child_process";
 import * as fs from "fs/promises";
 import path from "path";
-
+const __dirname = path.resolve();
 (async () => {
   const config = JSON.parse(await fs.readFile("data/config.json", "utf-8"));
 
