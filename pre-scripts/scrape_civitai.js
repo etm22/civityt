@@ -2,7 +2,7 @@ const axios = require("axios");
 const fs = require("fs/promises");
 
 (async () => {
-  await getImageUrlsFromCivitAI(30000);
+  await getImageUrlsFromCivitAI(500000);
 })();
 
 async function getImageUrlsFromCivitAI(scrapeLimit) {
