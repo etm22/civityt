@@ -26,7 +26,7 @@ jobs:
       - run: node download_images.js
       - run: python resize_images.py
       - run: node create_video.js
-      - run: node upload.js
+      - run: node upload.cjs
       # - uses: actions/upload-artifact@v3
       #   with:
       #     name: video
