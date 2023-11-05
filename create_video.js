@@ -9,9 +9,9 @@ const __dirname = path.resolve();
   const outputDirectory = path.join(__dirname, "outputs");
 
   //   get video duration
-  const resized_images = await fs.readdir("outputs/images_resized");
-  const video_length_in_sec =
-    (resized_images.length - 1) * config.image_duration_in_sec;
+  // const resized_images = await fs.readdir("outputs/images_resized");
+  // const video_length_in_sec =
+  //   (resized_images.length - 1) * config.image_duration_in_sec;
 
   // download audio
   execSync(

@@ -2,9 +2,10 @@ name: main
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 */6 * * *" # every 6 hours
-  push:
-    branches: [master]
+    # - cron: "0 */6 * * *" # every 6 hours
+    - cron: "0 0 * * *" # every 24 hours
+  # push:
+  #   branches: [master]
 
 env:
   YT_API_KEY: ${{secrets.YT_API_KEY}}
@@ -25,8 +26,8 @@ jobs:
       - run: node download_images.js
       - run: python resize_images.py
       - run: node create_video.js
-      # - run: node upload.js
-      - uses: actions/upload-artifact@v3
-        with:
-          name: video
-          path: outputs/video.mp4
+      - run: node upload.js
+      # - uses: actions/upload-artifact@v3
+      #   with:
+      #     name: video
+      #     path: outputs/video.mp4
