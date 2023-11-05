@@ -15,7 +15,7 @@ const __dirname = path.resolve();
 
   // download audio
   execSync(
-    `wget -O ${outputDirectory}/music.mp3 https://huggingface.co/upmr/yt-musics/resolve/main/z6aONWHhTCU_12.mp3`
+    `wget -O "${outputDirectory}/music.mp3" https://huggingface.co/upmr/yt-musics/resolve/main/z6aONWHhTCU_12.mp3`
   );
 
   // // select random video
