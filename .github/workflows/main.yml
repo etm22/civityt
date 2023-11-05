@@ -26,3 +26,7 @@ jobs:
       - run: python resize_images.py
       - run: node create_video.js
       # - run: node upload.js
+      - uses: actions/upload-artifact@v3
+        with:
+          name: video
+          path: outputs/video.mp4

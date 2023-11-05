@@ -15,7 +15,7 @@ const __dirname = path.resolve();
 
   // download audio
   execSync(
-    `wget -O music.mp3 https://huggingface.co/upmr/yt-musics/resolve/main/z6aONWHhTCU_12.mp3`
+    `wget -O ${outputDirectory}/music.mp3 https://huggingface.co/upmr/yt-musics/resolve/main/z6aONWHhTCU_12.mp3`
   );
 
   // // select random video
@@ -52,9 +52,9 @@ const __dirname = path.resolve();
   // );
 
   // create final video + add audio
-  // execSync(
-  //   `ffmpeg -framerate 1/${config.image_duration_in_sec} -pattern_type glob -i "${outputDirectory}/images_resized/*.jpeg" -i "${outputDirectory}/musics/music.mp3" -c:v libx264 -r 1 -pix_fmt yuv420p -c:a aac -strict experimental -shortest "${outputDirectory}/video.mp4"`
-  // );
+  execSync(
+    `ffmpeg -framerate 1/${config.image_duration_in_sec} -pattern_type glob -i "${outputDirectory}/images_resized/*.jpeg" -i "${outputDirectory}/music.mp3" -c:v libx264 -r 1 -pix_fmt yuv420p -c:a aac -strict experimental -shortest "${outputDirectory}/video.mp4"`
+  );
   // execSync(
   //   `ffmpeg -framerate 1/${config.image_duration_in_sec} -pattern_type glob -i "${outputDirectory}/images_resized/*.jpeg" -c:v libx264 -r 1 -pix_fmt yuv420p "${outputDirectory}/video.mp4"`
   // );
