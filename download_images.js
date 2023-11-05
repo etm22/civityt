@@ -1,7 +1,7 @@
 import * as fs from "fs/promises";
 import axios from "axios";
 import pLimit from "p-limit";
-const limit = pLimit(100);
+const limit = pLimit(50);
 
 (async () => {
   const config = JSON.parse(await fs.readFile("data/config.json", "utf-8"));

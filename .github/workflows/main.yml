@@ -3,8 +3,8 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 */6 * * *" # every 6 hours
-  # push:
-  #   branches: [master]
+  push:
+    branches: [master]
 
 env:
   YT_API_KEY: ${{secrets.YT_API_KEY}}
@@ -25,4 +25,4 @@ jobs:
       - run: node download_images.js
       - run: python resize_images.py
       - run: node create_video.js
-      - run: node upload.js
+      # - run: node upload.js

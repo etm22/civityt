@@ -2,6 +2,7 @@ import { execSync } from "child_process";
 import * as fs from "fs/promises";
 import path from "path";
 const __dirname = path.resolve();
+
 (async () => {
   const config = JSON.parse(await fs.readFile("data/config.json", "utf-8"));
 
@@ -11,6 +12,11 @@ const __dirname = path.resolve();
   const resized_images = await fs.readdir("outputs/images_resized");
   const video_length_in_sec =
     (resized_images.length - 1) * config.image_duration_in_sec;
+
+  // download audio
+  execSync(
+    `wget -O music.mp3 https://huggingface.co/upmr/yt-musics/resolve/main/z6aONWHhTCU_12.mp3`
+  );
 
   // // select random video
   // const videos = JSON.parse(await fs.readFile("data/musics.json", "utf-8"));
@@ -49,9 +55,9 @@ const __dirname = path.resolve();
   // execSync(
   //   `ffmpeg -framerate 1/${config.image_duration_in_sec} -pattern_type glob -i "${outputDirectory}/images_resized/*.jpeg" -i "${outputDirectory}/musics/music.mp3" -c:v libx264 -r 1 -pix_fmt yuv420p -c:a aac -strict experimental -shortest "${outputDirectory}/video.mp4"`
   // );
-  execSync(
-    `ffmpeg -framerate 1/${config.image_duration_in_sec} -pattern_type glob -i "${outputDirectory}/images_resized/*.jpeg" -c:v libx264 -r 1 -pix_fmt yuv420p "${outputDirectory}/video.mp4"`
-  );
+  // execSync(
+  //   `ffmpeg -framerate 1/${config.image_duration_in_sec} -pattern_type glob -i "${outputDirectory}/images_resized/*.jpeg" -c:v libx264 -r 1 -pix_fmt yuv420p "${outputDirectory}/video.mp4"`
+  // );
 })();
 
 function shuffleArray(array) {
