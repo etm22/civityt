@@ -6,7 +6,7 @@ require("dotenv").config();
 (async () => {
   let data = new FormData();
   data.append("file", fs.createReadStream("outputs/video.mp4"));
-  data.append("video_title", `10+ Hours of AI Art [Lookbook, FHD Compilation]`);
+  data.append("video_title", `10+ Hours of AI-Generated Images`);
   data.append(
     "video_description",
     `Create free images with AI: ${process.env.AFF_LINK}
