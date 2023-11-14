@@ -17,7 +17,8 @@ jobs:
       - uses: actions/checkout@v3
       - uses: FedericoCarboni/setup-ffmpeg@v2
       - run: |
-          cd remotion && npm i && ls
+          node generate_remotion_data.js
+          cd remotion && npm i && npm run build
 
       - uses: actions/upload-artifact@v3
         with:

@@ -16,7 +16,7 @@ export const MyComposition = () => {
 	const waitForFont = delayRender();
 	const font = new FontFace(
 		`soehne`,
-		`url('${staticFile('OsbelixPro.ttf')}') format('ttf')`
+		`url('${staticFile('ObelixPro.ttf')}') format('ttf')`
 	);
 	font
 		.load()
