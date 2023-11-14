@@ -16,9 +16,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: FedericoCarboni/setup-ffmpeg@v2
-      - run: npm i
-      - run: node generate_remotion_data.js
-      - run: npm run build
+      - run: |
+          cd remotion && npm i && pwd && ls
 
       - uses: actions/upload-artifact@v3
         with:

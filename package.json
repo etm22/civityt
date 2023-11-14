@@ -1,15 +1,8 @@
 {
   "type": "module",
-  "scripts": {
-    "build": "remotion render remotion/src/index.ts MyComp outputs/shorts.mp4"
-  },
   "dependencies": {
     "axios": "^1.5.1",
     "dotenv": "^16.3.1",
-    "p-limit": "^5.0.0",
-    "@remotion/cli": "^4.0.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "remotion": "^4.0.0"
+    "p-limit": "^5.0.0"
   }
 }
