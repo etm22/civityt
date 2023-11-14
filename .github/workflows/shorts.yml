@@ -20,7 +20,7 @@ jobs:
           node generate_remotion_data.js
           cd remotion
           npm i
-          npm run build
+          remotion render MyComp outputs/shorts.mp4
 
       - uses: actions/upload-artifact@v3
         with:
