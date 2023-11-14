@@ -4,27 +4,12 @@ import {
 	Img,
 	Series,
 	Video,
-	continueRender,
-	delayRender,
-	staticFile,
 	useVideoConfig,
 } from 'remotion';
 import introAlignment from '../../data/remotion/intro_alignment.json';
 import imagesData from '../../outputs/remotion.json';
 
 export const MyComposition = () => {
-	const waitForFont = delayRender();
-	const font = new FontFace(
-		`soehne`,
-		`url('${staticFile('ObelixPro.ttf')}') format('ttf')`
-	);
-	font
-		.load()
-		.then(() => {
-			document.fonts.add(font);
-			continueRender(waitForFont);
-		})
-		.catch((err) => console.log('Error loading font', err));
 	const videoConfig = useVideoConfig();
 
 	return (
@@ -60,7 +45,7 @@ export const MyComposition = () => {
 									textAlign: 'center',
 									fontSize: '3.5em',
 									color: '#1EF709',
-									fontFamily: 'ObelixPro',
+									fontFamily: 'Obelix Pro Italic',
 								}}
 							>
 								<h1>{word.value}</h1>
@@ -98,7 +83,7 @@ export const MyComposition = () => {
 									textAlign: 'center',
 									fontSize: '3.5em',
 									color: '#1EF709',
-									fontFamily: 'ObelixPro',
+									fontFamily: 'Obelix Pro Italic',
 								}}
 							>
 								<h1>{idx + 1}</h1>
