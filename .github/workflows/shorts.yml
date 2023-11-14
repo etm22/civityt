@@ -2,8 +2,7 @@ name: shorts
 on:
   workflow_dispatch:
   schedule:
-    # - cron: "0 */6 * * *" # every 6 hours
-    - cron: "0 0 * * *" # every 24 hours
+    - cron: "0 */6 * * *" # every 6 hours
   push:
     branches: [master]
 
@@ -21,6 +20,9 @@ jobs:
           cd remotion && npm i && npm run build
 
       - run: ffmpeg -i outputs/shorts.mp4 -af "volume=5.0" -c:v copy outputs/shorts_boosted.mp4
+
+      - run: npm i
+      - run: node upload_shorts.cjs
 
       - uses: actions/upload-artifact@v3
         with:
