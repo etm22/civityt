@@ -1,0 +1,28 @@
+name: main
+on:
+  workflow_dispatch:
+  schedule:
+    # - cron: "0 */6 * * *" # every 6 hours
+    - cron: "0 0 * * *" # every 24 hours
+  push:
+    branches: [master]
+
+env:
+  YT_UPLOADER_API: ${{secrets.YT_UPLOADER_API}}
+
+jobs:
+  main:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: FedericoCarboni/setup-ffmpeg@v2
+      - run: |
+          cd remotion
+          npm i
+          node generate_remotion_data.js
+          npm start
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: video
+          path: outputs/shorts.mp4
