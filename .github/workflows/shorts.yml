@@ -20,7 +20,7 @@ jobs:
           node generate_remotion_data.js
           cd remotion
           npm i
-          npm start
+          npm run build
 
       - uses: actions/upload-artifact@v3
         with:
