@@ -1,4 +1,4 @@
-name: main
+name: shorts
 on:
   workflow_dispatch:
   schedule:

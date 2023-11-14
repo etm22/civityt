@@ -7,7 +7,7 @@ import {
 	useVideoConfig,
 } from 'remotion';
 import introAlignment from '../../data/remotion/intro_alignment.json';
-import imagesData from '../../outputs/remotion.json';
+import data from '../../outputs/remotion.json';
 
 export const MyComposition = () => {
 	const videoConfig = useVideoConfig();
@@ -24,13 +24,13 @@ export const MyComposition = () => {
 				height={videoConfig.height}
 				width={videoConfig.width}
 				muted={true}
-				src="https://huggingface.co/upmr/temp/resolve/main/m3.mp4"
+				src={data.bg_video}
 			></Video>
 
 			<AbsoluteFill
 				style={{
 					backgroundColor: 'black',
-					opacity: 0.5,
+					opacity: 0.4,
 					width: '100%',
 					height: '100%',
 				}}
@@ -63,7 +63,7 @@ export const MyComposition = () => {
 					<div></div>
 				</Series.Sequence>
 
-				{imagesData.urls.map((img, idx: number) => {
+				{data.urls.map((img, idx: number) => {
 					return (
 						<Series.Sequence
 							key={`image-${idx}`}
