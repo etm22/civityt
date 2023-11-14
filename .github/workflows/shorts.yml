@@ -12,13 +12,13 @@ env:
 
 jobs:
   main:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: FedericoCarboni/setup-ffmpeg@v2
       - run: |
           node generate_remotion_data.js
-          cd remotion && npm i && pwd
+          cd remotion && npm i && npm run build
 
       - uses: actions/upload-artifact@v3
         with:
