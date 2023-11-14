@@ -5,3 +5,4 @@
 *.part
 node_modules
 .env
+outputs/remotion.json

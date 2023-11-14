@@ -1,0 +1,63 @@
+{
+    "sentence": "Here's ten random AI generated images for.",
+    "from": 0.17,
+    "to": 2.686,
+    "sub_sentences": [
+        {
+            "text": "Here's ten random AI generated images for.",
+            "words_alignment": [
+                {
+                    "value": "Here's",
+                    "from": 0.17,
+                    "to": 0.426,
+                    "confidence": 0.99959,
+                    "paragraphId": "db59f9c7-df95-4f3d-bcf3-c0ce63a609e5"
+                },
+                {
+                    "value": "8",
+                    "from": 0.458,
+                    "to": 0.654,
+                    "confidence": 1,
+                    "emoji": "🔟",
+                    "paragraphId": "db59f9c7-df95-4f3d-bcf3-c0ce63a609e5"
+                },
+                {
+                    "value": "random",
+                    "from": 0.692,
+                    "to": 1.034,
+                    "confidence": 0.89018,
+                    "emoji": "🎲",
+                    "paragraphId": "db59f9c7-df95-4f3d-bcf3-c0ce63a609e5"
+                },
+                {
+                    "value": "AI",
+                    "from": 1.082,
+                    "to": 1.434,
+                    "confidence": 0.42,
+                    "paragraphId": "db59f9c7-df95-4f3d-bcf3-c0ce63a609e5"
+                },
+                {
+                    "value": "generated",
+                    "from": 1.482,
+                    "to": 1.994,
+                    "confidence": 0.51903,
+                    "paragraphId": "db59f9c7-df95-4f3d-bcf3-c0ce63a609e5"
+                },
+                {
+                    "value": "images",
+                    "from": 2.042,
+                    "to": 2.474,
+                    "confidence": 0.99925,
+                    "paragraphId": "db59f9c7-df95-4f3d-bcf3-c0ce63a609e5"
+                },
+                {
+                    "value": "for you",
+                    "from": 2.522,
+                    "to": 3,
+                    "confidence": 0.99999,
+                    "paragraphId": "db59f9c7-df95-4f3d-bcf3-c0ce63a609e5"
+                }
+            ]
+        }
+    ]
+}
