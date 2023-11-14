@@ -14,6 +14,11 @@ export const MyComposition = () => {
 
 	return (
 		<AbsoluteFill>
+			<Audio
+				src="https://huggingface.co/upmr/temp/resolve/main/music.mp3"
+				volume={0.15}
+			/>
+
 			<Audio src="https://huggingface.co/upmr/temp/resolve/main/intro_8.wav"></Audio>
 			<Video
 				height={videoConfig.height}
