@@ -18,7 +18,7 @@ def adjustImage(in_path,out_path,add_text,desired_height, desired_width):
 
     if add_text:
         # Add text at the bottom
-        text_to_add="Generate images using AI: www.aimages.xyz"
+        text_to_add="Create images with AI: www.aimages.xyz"
         draw = ImageDraw.Draw(padded_img)
         text_color = (255, 255, 255)  # White text color
         text_font = ImageFont.truetype("arial.ttf", 40)  # You can specify the font and size
