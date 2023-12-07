@@ -24,6 +24,7 @@ import axios from "axios";
     } catch (error) {
       console.log("Failed to detect nsfw: ", imageUrls[idx]);
     }
+    idx++;
   }
 
   // background video
