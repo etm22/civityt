@@ -15,20 +15,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       # - uses: FedericoCarboni/setup-ffmpeg@v2
-      # - uses: actions/setup-node@v4
-      #   with:
-      #     node-version: "16.15.1"
+
       - run: npm install -g node-gyp
       - run: npm i
       - run: |
           node generate_remotion_data.js
-          cd remotion && npm i && npm run build
 
       # - run: ffmpeg -i outputs/shorts.mp4 -af "volume=5.0" -c:v copy outputs/shorts_boosted.mp4
 
       # - run: node upload_shorts.cjs
-
-      # - uses: actions/upload-artifact@v3
-      #   with:
-      #     name: video
-      #     path: outputs/video.mp4

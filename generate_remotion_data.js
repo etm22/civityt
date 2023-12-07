@@ -1,6 +1,7 @@
 import * as fs from "fs/promises";
 import tf from "@tensorflow/tfjs-node";
 import nsfw from "nsfwjs";
+import axios from "axios";
 
 (async () => {
   const imageUrls = JSON.parse(
@@ -22,7 +23,7 @@ import nsfw from "nsfwjs";
   }
 
   // background video
-
+  console.log(selectedImages);
   await fs.writeFile(
     "outputs/remotion.json",
     JSON.stringify({
