@@ -18,8 +18,12 @@ import axios from "axios";
   const selectedImages = [];
 
   while (selectedImages.length < 10) {
-    const hasNSFW = await detectNSFW(selectedImages[idx]);
-    if (!hasNSFW) selectedImages.push(selectedImages[idx]);
+    try {
+      const hasNSFW = await detectNSFW(selectedImages[idx]);
+      if (!hasNSFW) selectedImages.push(selectedImages[idx]);
+    } catch (error) {
+      console.log("Failed to detect nsfw: ", selectedImages[idx]);
+    }
   }
 
   // background video
