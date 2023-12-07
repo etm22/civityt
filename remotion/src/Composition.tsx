@@ -5,13 +5,17 @@ import {
 	Series,
 	Video,
 	useVideoConfig,
+	random,
 } from 'remotion';
 import introAlignment from '../../data/remotion/intro_alignment.json';
 import data from '../../outputs/remotion.json';
+import {VideoProgress} from './VideoProgress';
 
 export const MyComposition = () => {
 	const videoConfig = useVideoConfig();
 
+	const colors = ['yellow', '#1EF709', 'red', '#FF9209', '#39A7FF', '#F875AA'];
+	const selectedColor = colors[Math.floor(random(Date.now()) * colors.length)];
 	return (
 		<AbsoluteFill>
 			<Audio
@@ -49,7 +53,7 @@ export const MyComposition = () => {
 									top: '40%',
 									textAlign: 'center',
 									fontSize: '3.5em',
-									color: '#1EF709',
+									color: selectedColor,
 									fontFamily: 'Obelix Pro Italic',
 								}}
 							>
@@ -87,7 +91,7 @@ export const MyComposition = () => {
 									top: '50%',
 									textAlign: 'center',
 									fontSize: '3.5em',
-									color: '#1EF709',
+									color: selectedColor,
 									fontFamily: 'Obelix Pro Italic',
 								}}
 							>
@@ -103,11 +107,17 @@ export const MyComposition = () => {
 					top: '75%',
 					textAlign: 'center',
 					fontSize: '2em',
-					opacity: '0.5',
+					opacity: '0.4',
 					color: 'white',
 				}}
 			>
-				<h1>@ai_temple</h1>
+				<h1>Subscribe @ai_temple</h1>
+			</AbsoluteFill>
+			<AbsoluteFill>
+				<VideoProgress
+					duration={videoConfig.durationInFrames}
+					color={selectedColor}
+				/>
 			</AbsoluteFill>
 		</AbsoluteFill>
 	);
