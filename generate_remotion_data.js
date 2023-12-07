@@ -28,7 +28,6 @@ import axios from "axios";
   }
 
   // background video
-  console.log(selectedImages);
   await fs.writeFile(
     "outputs/remotion.json",
     JSON.stringify({
