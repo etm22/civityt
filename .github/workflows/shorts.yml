@@ -15,14 +15,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: FedericoCarboni/setup-ffmpeg@v2
+      - run: npm i
       - run: |
           node generate_remotion_data.js
           cd remotion && npm i && npm run build
 
       - run: ffmpeg -i outputs/shorts.mp4 -af "volume=5.0" -c:v copy outputs/shorts_boosted.mp4
 
-      - run: npm i
-      - run: node upload_shorts.cjs
+      # - run: node upload_shorts.cjs
 
       # - uses: actions/upload-artifact@v3
       #   with:
