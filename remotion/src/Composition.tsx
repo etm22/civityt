@@ -15,7 +15,8 @@ export const MyComposition = () => {
 	const videoConfig = useVideoConfig();
 
 	const colors = ['yellow', '#1EF709', 'red', '#FF9209', '#39A7FF', '#F875AA'];
-	const selectedColor = colors[Math.floor(random(Date.now()) * colors.length)];
+	const selectedColor =
+		colors[Math.floor(random(`${Date.now()}`) * colors.length)];
 	return (
 		<AbsoluteFill>
 			<Audio
