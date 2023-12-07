@@ -5,18 +5,14 @@ import {
 	Series,
 	Video,
 	useVideoConfig,
-	random,
 } from 'remotion';
 import introAlignment from '../../data/remotion/intro_alignment.json';
 import data from '../../outputs/remotion.json';
 import {VideoProgress} from './VideoProgress';
 
-export const MyComposition = () => {
+export const MyComposition = (props: any) => {
 	const videoConfig = useVideoConfig();
-
-	const colors = ['yellow', '#1EF709', 'red', '#FF9209', '#39A7FF', '#F875AA'];
-	const selectedColor =
-		colors[Math.floor(random(`${Date.now()}`) * colors.length)];
+	const {selectedColor} = props;
 	return (
 		<AbsoluteFill>
 			<Audio

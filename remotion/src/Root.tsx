@@ -3,6 +3,8 @@ import {MyComposition} from './Composition';
 import './style.css';
 
 export const RemotionRoot: React.FC = () => {
+	const colors = ['yellow', '#1EF709', 'red', '#FF9209', '#39A7FF', '#F875AA'];
+	const selectedColor = colors[Math.floor(Math.random() * colors.length)];
 	return (
 		<>
 			<Composition
@@ -12,6 +14,7 @@ export const RemotionRoot: React.FC = () => {
 				fps={30}
 				width={1080}
 				height={1920}
+				defaultProps={selectedColor}
 			/>
 		</>
 	);
