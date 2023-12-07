@@ -1,6 +1,6 @@
 import * as fs from "fs/promises";
-const tf = require("@tensorflow/tfjs-node");
-const nsfw = require("nsfwjs");
+import tf from "@tensorflow/tfjs-node";
+import nsfw from "nsfwjs";
 
 (async () => {
   const imageUrls = JSON.parse(
