@@ -15,6 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: FedericoCarboni/setup-ffmpeg@v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "16.15.1"
       - run: npm i
       - run: |
           node generate_remotion_data.js
