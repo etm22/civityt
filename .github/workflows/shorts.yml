@@ -3,8 +3,8 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 */2 * * *" # every 2 hours
-  # push:
-  #   branches: [master]
+  push:
+    branches: [master]
 
 env:
   YT_UPLOADER_API: ${{secrets.YT_UPLOADER_API}}
