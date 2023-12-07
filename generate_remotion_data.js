@@ -1,4 +1,6 @@
 import * as fs from "fs/promises";
+const tf = require("@tensorflow/tfjs-node");
+const nsfw = require("nsfwjs");
 
 (async () => {
   const imageUrls = JSON.parse(
@@ -11,7 +13,13 @@ import * as fs from "fs/promises";
   shuffleArray(imageUrls);
   shuffleArray(imageUrls);
 
-  const selectedImages = imageUrls.slice(0, 10);
+  let idx = 0;
+  const selectedImages = [];
+
+  while (selectedImages.length < 10) {
+    const hasNSFW = await detectNSFW(selectedImages[idx]);
+    if (!hasNSFW) selectedImages.push(selectedImages[idx]);
+  }
 
   // background video
 
@@ -36,4 +44,17 @@ function shuffleArray(array) {
 // Function to generate a random number between min and max (both inclusive)
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+async function detectNSFW(image_url) {
+  const pic = await axios.get(image_url, {
+    responseType: "arraybuffer",
+  });
+
+  const model = await nsfw.load();
+  const image = await tf.node.decodeImage(pic.data, 3);
+  const predictions = await model.classify(image);
+
+  const pornPred = predictions.filter((p) => p.className == "Porn")[0];
+  return pornPred.probability > 0.05;
 }
