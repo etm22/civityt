@@ -103,12 +103,14 @@ export const MyComposition = (props: any) => {
 				style={{
 					top: '75%',
 					textAlign: 'center',
-					fontSize: '2em',
-					opacity: '0.4',
+					fontSize: '2.5em',
+					opacity: '0.3',
 					color: 'white',
 				}}
 			>
-				<h1>Subscribe @ai_temple</h1>
+				<h1 style={{letterSpacing: '5px', fontFamily: 'monospace'}}>
+					www.aimages.xyz
+				</h1>
 			</AbsoluteFill>
 			<AbsoluteFill>
 				<VideoProgress

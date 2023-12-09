@@ -13,7 +13,7 @@ export const VideoProgress: React.FC<{duration: number; color: string}> = ({
 	const totalDistance = 2 * videoHeight + 2 * videoWidth;
 
 	const progressBar = {
-		size: 14,
+		size: 15,
 		color,
 		value:
 			interpolate(frame, [0, duration], [0, totalDistance]) % totalDistance,
