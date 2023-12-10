@@ -109,7 +109,7 @@ export const MyComposition = (props: any) => {
 				}}
 			>
 				<h1 style={{letterSpacing: '5px', fontFamily: 'monospace'}}>
-					www.aimages.xyz
+					@speedy-ai
 				</h1>
 			</AbsoluteFill>
 			<AbsoluteFill>

@@ -8,7 +8,7 @@ require("dotenv").config();
   data.append("file", fs.createReadStream("outputs/shorts_boosted.mp4"));
   data.append(
     "video_title",
-    `speedrunning yt shorts (AI Images) #${Date.now()}`
+    `speedrunning yt shorts (AI Images) #${Date.now().toString().slice(-3)}`
   );
   data.append(
     "video_description",
