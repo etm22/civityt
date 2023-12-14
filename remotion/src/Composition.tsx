@@ -31,7 +31,7 @@ export const MyComposition = (props: any) => {
 			<AbsoluteFill
 				style={{
 					backgroundColor: 'black',
-					opacity: 0.4,
+					opacity: 0.1,
 					width: '100%',
 					height: '100%',
 				}}
@@ -109,7 +109,7 @@ export const MyComposition = (props: any) => {
 				}}
 			>
 				<h1 style={{letterSpacing: '5px', fontFamily: 'monospace'}}>
-					@speedy-ai
+					@speed-ai
 				</h1>
 			</AbsoluteFill>
 			<AbsoluteFill>
