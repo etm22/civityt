@@ -11,8 +11,8 @@ export const RemotionRoot: React.FC = () => {
 			<Composition
 				id="MyComp"
 				component={MyComposition}
-				durationInFrames={450}
-				fps={30}
+				durationInFrames={360}
+				fps={24}
 				width={1080}
 				height={1920}
 				defaultProps={{selectedColor}}
