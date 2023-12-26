@@ -47,7 +47,7 @@ export const MyComposition = (props: any) => {
 						>
 							<AbsoluteFill
 								style={{
-									top: '40%',
+									top: '45%',
 									textAlign: 'center',
 									fontSize: '3.5em',
 									color: selectedColor,
@@ -70,6 +70,17 @@ export const MyComposition = (props: any) => {
 							key={`image-${idx}`}
 							durationInFrames={Math.round(videoConfig.fps * 1.5)}
 						>
+							<AbsoluteFill
+								style={{
+									top: '5%',
+									textAlign: 'center',
+									fontSize: '3em',
+									// opacity: '0.75',
+									color: selectedColor,
+								}}
+							>
+								<h1 style={{fontFamily: 'monospace'}}>www.aimages.xyz</h1>
+							</AbsoluteFill>
 							<Audio
 								src={`https://huggingface.co/upmr/temp/resolve/main/n_${
 									idx + 1
@@ -78,46 +89,38 @@ export const MyComposition = (props: any) => {
 
 							<AbsoluteFill
 								style={{
-									padding: '5%',
+									padding: '15% 10%',
+									top: '6%',
 								}}
 							>
-								<Img src={img} style={{maxHeight: '50%'}} width="auto"></Img>
+								<Img
+									src={img}
+									style={{maxHeight: '55%', borderRadius: '5%'}}
+									width="auto"
+								></Img>
 							</AbsoluteFill>
 							<AbsoluteFill
 								style={{
-									top: '50%',
+									top: '60%',
 									textAlign: 'center',
 									fontSize: '3.5em',
 									color: selectedColor,
 									fontFamily: 'Obelix Pro Italic',
 								}}
 							>
-								<h1>{idx + 1}</h1>
+								<h1>{idx + 1} / 8</h1>
 							</AbsoluteFill>
 						</Series.Sequence>
 					);
 				})}
 			</Series>
 
-			<AbsoluteFill
-				style={{
-					top: '75%',
-					textAlign: 'center',
-					fontSize: '2.5em',
-					opacity: '0.3',
-					color: 'white',
-				}}
-			>
-				<h1 style={{letterSpacing: '5px', fontFamily: 'monospace'}}>
-					@speed-ai
-				</h1>
-			</AbsoluteFill>
-			<AbsoluteFill>
+			{/* <AbsoluteFill>
 				<VideoProgress
 					duration={videoConfig.durationInFrames}
 					color={selectedColor}
 				/>
-			</AbsoluteFill>
+			</AbsoluteFill> */}
 		</AbsoluteFill>
 	);
 };

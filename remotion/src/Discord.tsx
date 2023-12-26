@@ -16,9 +16,9 @@ export const Discord = (props: any) => {
 	const frame = useCurrentFrame();
 	const {fps} = useVideoConfig();
 
-	const prompt = 'a cat dancing in port louis';
+	const prompt = 'titanic in port louis';
 	const imageURL =
-		'https://media.discordapp.net/attachments/1182916549598785606/1184166896656978032/a_cat_dancing_at_port_louis.png';
+		'https://media.discordapp.net/attachments/1094661201474101270/1184890458233635016/file-aietmPW4o2rfoMlSCuBsb8jA.png';
 
 	const IMAGINE_TEXT_DIF = 1 * fps;
 	const PROMPT_TEXT_DIF = 2 * fps;
