@@ -72,9 +72,9 @@ export const MyComposition = (props: any) => {
 						>
 							<AbsoluteFill
 								style={{
-									top: '5%',
+									top: '15%',
 									textAlign: 'center',
-									fontSize: '3em',
+									fontSize: '2.5em',
 									// opacity: '0.75',
 									color: selectedColor,
 								}}
@@ -90,18 +90,18 @@ export const MyComposition = (props: any) => {
 							<AbsoluteFill
 								style={{
 									padding: '15% 10%',
-									top: '6%',
+									top: '15%',
 								}}
 							>
 								<Img
 									src={img}
-									style={{maxHeight: '55%', borderRadius: '5%'}}
+									style={{maxHeight: '50%', borderRadius: '5%'}}
 									width="auto"
 								></Img>
 							</AbsoluteFill>
 							<AbsoluteFill
 								style={{
-									top: '60%',
+									top: '65%',
 									textAlign: 'center',
 									fontSize: '3.5em',
 									color: selectedColor,
