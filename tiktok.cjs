@@ -1,6 +1,8 @@
 const axios = require("axios");
 const fs = require("fs");
 require("dotenv").config();
+const Sign = require("tiktok-user-sign");
+const crypto = require("node:crypto");
 
 async function refreshTiktokToken() {
   const data = JSON.stringify({
@@ -74,20 +76,15 @@ async function uploadVideo(upload_url, videoFile) {
 }
 
 async function getTopHashtages(count) {
+  const signature = Sign(crypto.randomUUID());
+
   let config = {
     method: "get",
-    maxBodyLength: Infinity,
     url: "https://ads.tiktok.com/creative_radar_api/v1/popular_trend/hashtag/list?limit=50&period=7&sort_by=popular",
     headers: {
-      cookie: process.env.TK_COOKIES,
-      lang: "en",
-      referer:
-        "https://ads.tiktok.com/business/creativecenter/inspiration/popular/hashtag/pc/en",
-      timestamp: "1703584232",
       "user-agent":
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-      "user-sign": "38f2c48192865e2b",
-      "web-id": "7316837328067610113",
+      ...signature,
     },
   };
 

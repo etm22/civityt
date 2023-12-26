@@ -1,10 +1,11 @@
 {
   "type": "module",
   "dependencies": {
+    "@tensorflow/tfjs-node": "^4.14.0",
     "axios": "^1.5.1",
     "dotenv": "^16.3.1",
+    "nsfwjs": "^2.4.2",
     "p-limit": "^5.0.0",
-    "@tensorflow/tfjs-node": "^4.14.0",
-    "nsfwjs": "^2.4.2"
+    "tiktok-user-sign": "^3.0.0"
   }
 }
