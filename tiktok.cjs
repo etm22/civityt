@@ -73,13 +73,59 @@ async function uploadVideo(upload_url, videoFile) {
   const response = await axios(config);
 }
 
+async function getTopHashtages(count) {
+  let config = {
+    method: "get",
+    maxBodyLength: Infinity,
+    url: "https://ads.tiktok.com/creative_radar_api/v1/popular_trend/hashtag/list?limit=50&period=7&sort_by=popular",
+    headers: {
+      cookie: process.env.TK_COOKIES,
+      lang: "en",
+      referer:
+        "https://ads.tiktok.com/business/creativecenter/inspiration/popular/hashtag/pc/en",
+      timestamp: "1703584232",
+      "user-agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      "user-sign": "38f2c48192865e2b",
+      "web-id": "7316837328067610113",
+    },
+  };
+
+  const response = await axios(config);
+  const hashtags = response.data.data.list.map(
+    (item) => `#${item.hashtag_name}`
+  );
+  shuffle(hashtags);
+  return hashtags.slice(0, count);
+}
+
+function shuffle(array) {
+  let currentIndex = array.length,
+    randomIndex;
+
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+
+  return array;
+}
+
 (async () => {
   const videoFile = "outputs/shorts_boosted.mp4";
+
+  let hashtags = await getTopHashtages(7);
+  hashtags = hashtags.join(" ");
 
   const access_token = await refreshTiktokToken();
   const upload_url = await getUploadURL(
     access_token,
-    `speedrunning yt shorts (AI Images)  #${Date.now().toString().slice(-4)}`,
+    `AI Generated Images ${hashtags}`,
     videoFile
   );
 
