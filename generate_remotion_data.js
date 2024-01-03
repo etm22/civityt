@@ -17,7 +17,10 @@ import axios from "axios";
   let idx = 0;
   const selectedImages = [];
 
-  while (selectedImages.length < 10) {
+  // const numOfImages = getRandomInt(8, 15);
+  const numOfImages = 15;
+
+  while (selectedImages.length < numOfImages) {
     try {
       const hasNSFW = await detectNSFW(imageUrls[idx]);
       if (!hasNSFW) selectedImages.push(imageUrls[idx]);

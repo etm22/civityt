@@ -17,10 +17,10 @@ export const MyComposition = (props: any) => {
 		<AbsoluteFill>
 			<Audio
 				src="https://huggingface.co/upmr/temp/resolve/main/music.mp3"
-				volume={0.15}
+				// volume={0.15}
 			/>
 
-			<Audio src="https://huggingface.co/upmr/temp/resolve/main/intro_8.wav"></Audio>
+			{/* <Audio src="https://huggingface.co/upmr/temp/resolve/main/intro_8.wav"></Audio> */}
 			<Video
 				height={videoConfig.height}
 				width={videoConfig.width}
@@ -37,7 +37,7 @@ export const MyComposition = (props: any) => {
 				}}
 			></AbsoluteFill>
 			<Series>
-				{introAlignment.sub_sentences[0].words_alignment.map((word, idx) => {
+				{/* {introAlignment.sub_sentences[0].words_alignment.map((word, idx) => {
 					return (
 						<Series.Sequence
 							key={`text-${idx}`}
@@ -58,39 +58,43 @@ export const MyComposition = (props: any) => {
 							</AbsoluteFill>
 						</Series.Sequence>
 					);
-				})}
+				})} */}
 				{/* silence */}
-				<Series.Sequence durationInFrames={videoConfig.fps * 0.5}>
+				{/* <Series.Sequence durationInFrames={videoConfig.fps * 0.5}>
 					<div></div>
-				</Series.Sequence>
+				</Series.Sequence> */}
 
 				{data.urls.map((img, idx: number) => {
 					return (
 						<Series.Sequence
 							key={`image-${idx}`}
-							durationInFrames={Math.round(videoConfig.fps * 1.5)}
+							durationInFrames={Math.round(videoConfig.fps * 1)}
 						>
 							<AbsoluteFill
 								style={{
-									top: '15%',
+									top: '9%',
 									textAlign: 'center',
 									fontSize: '2.5em',
 									// opacity: '0.75',
 									color: selectedColor,
 								}}
 							>
-								<h1 style={{fontFamily: 'monospace'}}>www.aimages.xyz</h1>
+								<h1>
+									{idx + 1} / {data.urls.length}
+								</h1>
+
+								{/* <h1 style={{fontFamily: 'monospace'}}>www.aimages.xyz</h1> */}
 							</AbsoluteFill>
-							<Audio
+							{/* <Audio
 								src={`https://huggingface.co/upmr/temp/resolve/main/n_${
 									idx + 1
 								}.wav`}
-							></Audio>
+							></Audio> */}
 
 							<AbsoluteFill
 								style={{
 									padding: '15% 10%',
-									top: '15%',
+									top: '10%',
 								}}
 							>
 								<Img
@@ -101,14 +105,27 @@ export const MyComposition = (props: any) => {
 							</AbsoluteFill>
 							<AbsoluteFill
 								style={{
-									top: '65%',
+									top: '60%',
 									textAlign: 'center',
-									fontSize: '3.5em',
+									fontSize: '2.2em',
 									color: selectedColor,
-									fontFamily: 'Obelix Pro Italic',
+									fontFamily: 'monospace',
+									// fontFamily: 'Obelix Pro Italic',
 								}}
 							>
-								<h1>{idx + 1} / 8</h1>
+								<h1>Create images with AI</h1>
+							</AbsoluteFill>
+							<AbsoluteFill
+								style={{
+									top: '65%',
+									textAlign: 'center',
+									fontSize: '2.2em',
+									color: selectedColor,
+									fontFamily: 'monospace',
+									// fontFamily: 'Obelix Pro Italic',
+								}}
+							>
+								<h1>www.aimages.xyz</h1>
 							</AbsoluteFill>
 						</Series.Sequence>
 					);
